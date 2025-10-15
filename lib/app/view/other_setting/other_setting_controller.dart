@@ -72,8 +72,10 @@ mixin OtherSettingController {
     zoneList.add(ZoneModel(title: "زون 4", id: 4));
     zoneList.add(ZoneModel(title: "زون 5", id: 5));
     zoneList.add(ZoneModel(title: "زون 6", id: 6));
-    zoneList.add(ZoneModel(title: "زون 7", id: 7));
-    zoneList.add(ZoneModel(title: "زون 8", id: 8));
+    if (getModelSelected().id != 1) {
+      zoneList.add(ZoneModel(title: "زون 7", id: 7));
+      zoneList.add(ZoneModel(title: "زون 8", id: 8));
+    }
     selectZone(zoneList[0]);
   }
 
@@ -125,7 +127,7 @@ mixin OtherSettingController {
     this.operator.value = _operator;
   }
 
-///////////////////////////////////
+  ///////////////////////////////////
   void setSetupStimulationType(int _setupStimulationType) {
     this.setupStimulationType(_setupStimulationType);
   }
@@ -205,36 +207,36 @@ mixin OtherSettingController {
   //   sendMessage(code.replaceAll("VAL", (alarmOnOffSmsReceivingReport.value + 1).toString()));
   // }
 
-//   Future<void> sendSelectOperator() async {
-//     String code = await getCode(DataManager.selectSimType);
-//     sendMessage(code.replaceAll("VAL", (operator.value + 1).toString()));
-//   }
-//
-// ////////
-//   Future<void> sendSetupStimulationType() async {
-//     String code = await getCode(DataManager.setupStimulationType);
-//     sendMessage(code.replaceAll("VAL", (setupStimulationType.value + 1).toString()));
-//   }
-//
-//   Future<void> sendSetupLanguageSMS() async {
-//     String code = await getCode(DataManager.setupLanguageSMS);
-//     sendMessage(code.replaceAll("VAL", (setupLanguageSMS.value + 1).toString()));
-//   }
-//
-//   Future<void> sendDefaultDialingSystem() async {
-//     String code = await getCode(DataManager.defaultDialingSystem);
-//     sendMessage(code.replaceAll("VAL", (defaultDialingSystem.value + 1).toString()));
-//   }
-//
-//   Future<void> sendRemoteControl() async {
-//     String code = await getCode(DataManager.remoteControl);
-//     sendMessage(code.replaceAll("VAL", (remoteControl.value + 1).toString()));
-//   }
-//
-//   Future<void> sendSetAlarmTime() async {
-//     String code = await getCode(DataManager.setAlarmTime);
-//     sendMessage(code.replaceAll("VAL", (setAlarmTime.value + 1).toString()));
-//   }
+  //   Future<void> sendSelectOperator() async {
+  //     String code = await getCode(DataManager.selectSimType);
+  //     sendMessage(code.replaceAll("VAL", (operator.value + 1).toString()));
+  //   }
+  //
+  // ////////
+  //   Future<void> sendSetupStimulationType() async {
+  //     String code = await getCode(DataManager.setupStimulationType);
+  //     sendMessage(code.replaceAll("VAL", (setupStimulationType.value + 1).toString()));
+  //   }
+  //
+  //   Future<void> sendSetupLanguageSMS() async {
+  //     String code = await getCode(DataManager.setupLanguageSMS);
+  //     sendMessage(code.replaceAll("VAL", (setupLanguageSMS.value + 1).toString()));
+  //   }
+  //
+  //   Future<void> sendDefaultDialingSystem() async {
+  //     String code = await getCode(DataManager.defaultDialingSystem);
+  //     sendMessage(code.replaceAll("VAL", (defaultDialingSystem.value + 1).toString()));
+  //   }
+  //
+  //   Future<void> sendRemoteControl() async {
+  //     String code = await getCode(DataManager.remoteControl);
+  //     sendMessage(code.replaceAll("VAL", (remoteControl.value + 1).toString()));
+  //   }
+  //
+  //   Future<void> sendSetAlarmTime() async {
+  //     String code = await getCode(DataManager.setAlarmTime);
+  //     sendMessage(code.replaceAll("VAL", (setAlarmTime.value + 1).toString()));
+  //   }
 
   Future<void> sendSetZone() async {
     if ((selectZone.value.id) > 0) {
@@ -244,9 +246,6 @@ mixin OtherSettingController {
       snackbarRed(title: s.error, subtitle: s.selectYourZoneNumber);
     }
   }
-
-
-
 
   //
   // Future<void> sendSingleSirenSetting() async {
@@ -350,7 +349,6 @@ mixin OtherSettingController {
     if (etMenuPassword.text.length > 3) {
       String _code = getCode(DataManager.changeTheMenuPassword);
       sendMessage(_code.replaceAll("NEWPASS", (etMenuPassword.text.toString())));
-
     } else {
       snackbarRed(title: s.error, subtitle: s.thePasswordMustBeAtLeast3Characters);
     }
@@ -360,7 +358,6 @@ mixin OtherSettingController {
     if (etBurglarAlarmPassword.text.length > 3) {
       String _code = getCode(DataManager.changeTheBurglarAlarmPassword);
       sendMessage(_code.replaceAll("NEWPASS", (etBurglarAlarmPassword.text.toString())));
-
     } else {
       snackbarRed(title: s.error, subtitle: s.thePasswordMustBeAtLeast3Characters);
     }

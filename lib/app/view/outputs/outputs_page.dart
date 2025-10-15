@@ -33,7 +33,7 @@ class _OutputsPageState extends State<OutputsPage> with OutputsController {
           body: Obx(() {//
             return isLoaded.value && outputList.isNotEmpty
                 ? ListView.builder(
-                    itemCount:getModelSelected().id==1?4:getModelSelected().id==2?outputList.value.length:getModelSelected().id==3?1: outputList.value.length,
+                    itemCount:getModelSelected().id==1?1:getModelSelected().id==2?outputList.value.length:getModelSelected().id==3?1: outputList.value.length,
                     itemBuilder: (context, index) {
                       return _items(outputModel: outputList[index]);
                     },

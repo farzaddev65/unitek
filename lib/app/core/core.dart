@@ -31,7 +31,7 @@ class Core {
   static Color baseColor = const Color(0xfff5f5f5);
   static String defaultLocal = 'fa';
   static List<DeviceModel> deviceModelList = <DeviceModel>[];
-  static String versionNumber = '5.2.0';
+  static String versionNumber = '1.0';
   // static String model1 = 'S.G.S';
   // static String model2 = 'S.G.S+';
   static String model3 = 'Unitek-G6';
